@@ -41,13 +41,11 @@ else:
 
 
 # 1. Input:
-# ...
 item_id = int(input("Enter the Item ID to order: "))
 quantity = int(input("Enter the quantity: "))
 
 
-# 2. Process: [Validate and create order]
-# ...
+# 2. Process: Validate and create order
 for item in inventory:
     if item_id == item["item_id"]:
         if item["stock"] >= quantity:
@@ -61,7 +59,6 @@ for item in inventory:
             print("Not enough stock")
 
 # 3. Output:
-# ...
 for item in inventory:
     print(item)
 
@@ -70,13 +67,11 @@ for item in inventory:
 # Prompt the user for the item name.
 
 # 1. Input:
-# ...
 search_item = input("Enter the item name to search (e.g. 'Latte'): ")
 
 
 
-# 2. Process: [Find orders for item]
-# ...
+# 2. Process: Find orders for item
 search_item_orders = []
 for item in inventory:
     if item["name"] == search_item:
@@ -87,7 +82,6 @@ for item in inventory:
 
 
 # 3. Output:
-# ...
 for order in search_item_orders:
     print(order)
 
@@ -95,13 +89,12 @@ for order in search_item_orders:
 # Query 3: Total number of orders placed for "Cold Brew".
 
 # 1. Input:
-# ...
+# None
 
 
 
 
-# 2. Process: [Count Cold Brew Orders]
-# ...
+# 2. Process: Count Cold Brew Orders
 order_amount = 0
 for item in inventory:
     if item["name"] == "Cold Brew":
@@ -111,7 +104,6 @@ for item in inventory:
                 order_amount += 1
 
 # 3. Output:
-# ...
 print("Number of orders of Cold Brew: ", order_amount)
 
 
@@ -119,21 +111,18 @@ print("Number of orders of Cold Brew: ", order_amount)
 # Query 4: Update item stock quantity by item id.
 
 # 1. Input:
-# ...
 item_id = int(input("Enter ID of item to update: "))
 new_stock = int(input("Enter new stock quantity: "))
 
 
 
-# 2. Process: [Name process here, e.g. "Validate and update stock"]
-# ...
+# 2. Process: Validate and update stock
 for item in inventory:
     if item["item_id"] == item_id:
         item["stock"] = new_stock
 
 
 # 3. Output:
-# ...
 print(f"item id: {item_id} stock changed to {new_stock} \n")
 for item in inventory:
     print(item)
@@ -142,12 +131,11 @@ for item in inventory:
 # Query 5: Cancel an order and restore stock.
 
 # 1. Input:
-# ...
+
 cancel_order_id = input("Enter Order ID to cancel: ")
 
 
-# 2. Process: [Name process here, e.g. "Cancel order"]
-# ...
+# 2. Process: Cancel order
 for order in orders:
     if order["order_id"] == cancel_order_id:
         order["status"] = "Cancelled"
@@ -158,7 +146,6 @@ for order in orders:
                 item["stock"] += quantity
 
 # 3. Output:
-# ...
 for item in inventory:
     print(item)
 for order in orders:
